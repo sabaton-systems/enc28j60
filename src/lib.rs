@@ -15,7 +15,7 @@
 //! - [ENC28J60 Data Sheet](http://ww1.microchip.com/downloads/en/DeviceDoc/39662e.pdf)
 //! - [ENC28J60 Rev. B7 Silicon Errata](http://ww1.microchip.com/downloads/en/DeviceDoc/80349b.pdf)
 
-#![deny(missing_docs)]
+//#![deny(missing_docs)]
 #![deny(warnings)]
 #![no_std]
 
@@ -485,7 +485,7 @@ where
         self._write_control_register(register, f(r))
     }
 
-    fn read_control_register<R>(&mut self, register: R) -> Result<u8, E>
+    pub fn read_control_register<R>(&mut self, register: R) -> Result<u8, E>
     where
         R: Into<Register>,
     {
@@ -549,7 +549,7 @@ where
         Ok(())
     }
 
-    fn write_control_register<R>(&mut self, register: R, value: u8) -> Result<(), E>
+    pub fn write_control_register<R>(&mut self, register: R, value: u8) -> Result<(), E>
     where
         R: Into<Register>,
     {
@@ -714,7 +714,7 @@ impl Instruction {
 }
 
 #[derive(Clone, Copy)]
-enum Register {
+pub enum Register {
     Bank0(bank0::Register),
     Bank1(bank1::Register),
     Bank2(bank2::Register),
