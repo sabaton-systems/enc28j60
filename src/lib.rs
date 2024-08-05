@@ -38,13 +38,13 @@ use traits::U16Ext;
 
 #[macro_use]
 mod macros;
-mod bank0;
-mod bank1;
-mod bank2;
-mod bank3;
-mod common;
-mod phy;
-mod traits;
+pub mod bank0;
+pub mod bank1;
+pub mod bank2;
+pub mod bank3;
+pub mod common;
+pub mod phy;
+pub mod traits;
 
 /// SPI mode
 pub const MODE: Mode = Mode {
